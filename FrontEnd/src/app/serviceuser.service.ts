@@ -6,9 +6,12 @@ import{ HttpClient } from  '@angular/common/http';
 })
 export class ServiceuserService {
 
+  server_address:string='api';
+
   constructor(private http:HttpClient) { }
 
   addusers(data:any){
-    return this.http.post<any>("http://localhost:3000/adduser",data);
+    // return this.http.post<any>(`{$this.server_address}/adduser`,data);
+    return this.http.post<any>(`${this.server_address}/adduser`,data);
   }
 }

@@ -5,11 +5,12 @@ import{ HttpClient } from  '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
+  server_address:string='api';
 
   constructor(private http:HttpClient) { }
 
   loginUser(data:any){
-    return this.http.post<any>("http://localhost:3000/login",data);
+    return this.http.post<any>(`${this.server_address}/login`,data);
   }
 
   loggedin(){
